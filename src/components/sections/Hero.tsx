@@ -25,7 +25,7 @@ export const Hero = () => {
           </div>
           <div>
             <img
-              src="./img/Lucho-Dev.png"
+              src="/img/Lucho-Dev.png"
               alt="Desarrollo web rápido"
               width={600}
               height={400}

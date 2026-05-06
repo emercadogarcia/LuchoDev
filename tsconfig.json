@@ -26,9 +26,8 @@
       "@/*": ["./src/*"]
     },
 
-    /* Silenciar advertencias de deprecated */
-    "ignoreDeprecations": "6.0"
   },
+
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

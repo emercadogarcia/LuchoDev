@@ -1,5 +1,4 @@
 export const Contact = () => {
-  const whatsappNumber = '59172698986'
   const curriculumUrl = 'https://emercadogarcia.github.io/'
 
   return (
@@ -101,7 +100,7 @@ export const Contact = () => {
               <textarea 
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all text-slate-900" 
                 placeholder="Cuéntame brevemente tu idea..." 
-                rows="5"
+                rows={5}
                 name="mensaje"
                 required
               />

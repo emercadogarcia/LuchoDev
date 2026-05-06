@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 
 export const Gracias = () => {
   const [countdown, setCountdown] = useState(12)
@@ -84,13 +83,13 @@ export const Gracias = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link 
-            to="/"
+          <a 
+            href="/"
             className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
           >
             <span className="material-symbols-outlined">home</span>
             Volver al inicio
-          </Link>
+          </a>
           <a 
             href="mailto:emercadogarcia@outlook.com"
             className="inline-flex items-center justify-center gap-2 bg-white text-slate-900 font-semibold py-3 px-6 rounded-xl hover:bg-slate-50 transition-colors border border-slate-200"
@@ -112,12 +111,12 @@ export const Gracias = () => {
               Redirigiendo al inicio en <span className="font-bold text-blue-600">{countdown}</span> segundos...
             </span>
           </div>
-          <Link 
-            to="/"
+          <a 
+            href="/"
             className="mt-3 inline-block text-blue-600 hover:text-blue-800 text-sm font-medium underline"
           >
             Ir ahora →
-          </Link>
+          </a>
         </div>
       </div>
     </div>

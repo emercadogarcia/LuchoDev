@@ -1,13 +1,42 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export const Gracias = () => {
+  const [countdown, setCountdown] = useState(12)
+  const [userInteracted, setUserInteracted] = useState(false)
+
   useEffect(() => {
     document.title = 'Gracias por contactarme - LuchoDev'
   }, [])
 
+  useEffect(() => {
+    if (userInteracted || countdown <= 0) return
+
+    const timer = setInterval(() => {
+      setCountdown(prev => {
+        if (prev <= 1) {
+          window.location.href = '/'
+          return 0
+        }
+        return prev - 1
+      })
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [userInteracted, countdown])
+
+  const handleUserInteraction = () => {
+    if (!userInteracted) {
+      setUserInteracted(true)
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-slate-100 flex items-center justify-center px-6">
+    <div 
+      className="min-h-screen bg-gradient-to-br from-blue-50 to-slate-100 flex items-center justify-center px-6"
+      onClick={handleUserInteraction}
+      onKeyDown={handleUserInteraction}
+    >
       <div className="max-w-2xl w-full text-center">
         <div className="mb-8">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -73,6 +102,22 @@ export const Gracias = () => {
 
         <div className="mt-8 text-sm text-slate-500">
           <p>Si no recibes respuesta en 24 horas, revisa tu carpeta de spam o contáctame directamente.</p>
+        </div>
+
+        {/* Auto-redirect countdown */}
+        <div className="mt-6 bg-blue-50 rounded-xl p-4 border border-blue-200">
+          <div className="flex items-center justify-center gap-3">
+            <span className="material-symbols-outlined text-blue-600 animate-spin">autorenew</span>
+            <span className="text-blue-900 font-medium">
+              Redirigiendo al inicio en <span className="font-bold text-blue-600">{countdown}</span> segundos...
+            </span>
+          </div>
+          <Link 
+            to="/"
+            className="mt-3 inline-block text-blue-600 hover:text-blue-800 text-sm font-medium underline"
+          >
+            Ir ahora →
+          </Link>
         </div>
       </div>
     </div>
